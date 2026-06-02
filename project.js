@@ -19,7 +19,7 @@ async function fetchdata() {
       divs.className = "todo";
       divs.innerHTML = `
       <p class="para">${obj.text}</p>
-      <input class='para' id='parain' placeholder='new value..'>
+      <input class='para' id='parain' placeholder='new value..' value=${obj.text}>
       <div class="btns">
         <button class='deleteBtn'>delete</button>
         <button class='editBtn'>Edit</button>
@@ -44,6 +44,7 @@ async function fetchdata() {
         console.log(obj.id)
         paragraph.style.display='none';
         parain.style.display='block'
+
         
         
 
@@ -53,12 +54,12 @@ async function fetchdata() {
         
 
       })
-      saveBtn.addEventListener('click',function(){
+      saveBtn.addEventListener('click',async function(){
         console.log(obj.id);
         editBtns.style.display='inline-block'
         saveBtn.style.display='none';
         parainValue=parain.value;
-        editData(obj.id,parainValue)
+        await editData(obj.id,parainValue)
 
 
         
